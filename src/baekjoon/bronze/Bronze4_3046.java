@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class Bronze3046 {
+public class Bronze4_3046 {
 
     public static void main(String[] args) throws IOException {
 

@@ -1,11 +1,10 @@
 package baekjoon.bronze;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class Bronze5622 {
+public class Bronze2_5622 {
 
     public static void main(String[] args) throws IOException {
 
