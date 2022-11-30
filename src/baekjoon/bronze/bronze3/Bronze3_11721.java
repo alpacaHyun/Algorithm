@@ -1,4 +1,4 @@
-package baekjoon.bronze;
+package baekjoon.bronze.bronze3;
 
 import java.util.Scanner;
 
