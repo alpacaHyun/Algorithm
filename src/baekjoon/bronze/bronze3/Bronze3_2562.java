@@ -16,17 +16,28 @@ public class Bronze3_2562 {
 
     public static void main(String[] args) throws IOException {
 
-        List<Integer> inputList = new ArrayList<>();
-        int max = 0;
-        int count = 0;
-
+        List<String> input = new ArrayList<>();
+        List<Integer> intList = new ArrayList<>();
+        List<Integer> sortedList = new ArrayList<>();
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         for (int i = 0; i < 9; i++) {
-            int a = Integer.parseInt(br.readLine());
-            if(max > a);
+            input.add(br.readLine());
         }
 
+        for (int i = 0; i < input.size(); i++) {
+            intList.add(Integer.parseInt(input.get(i)));
+        }
 
+        sortedList = sortList(intList);
+
+        System.out.println(sortedList.get(8));
+        int a = intList.indexOf(sortedList.get(8));
+        System.out.println(a);
+    }
+
+    public static List<Integer> sortList(List<Integer> input) {
+        Collections.sort(input);
+        return input;
     }
 }
