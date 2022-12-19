@@ -1,23 +1,25 @@
 package doitalgorithm.chapter2;
 
+import java.util.Arrays;
+
 public class ChangeArr {
 
+        static int[] arr = {1, 2, 3, 4, 5};
     public static void main(String[] args) {
 
-        int[] arr = {1, 2, 3, 4, 5};
 
         reverse(arr);
-        System.out.println(arr);
+        System.out.println(Arrays.toString(arr));
     }
 
     private static void swap(int[] a, int indx1, int indx2) {
-        int i = a[indx1];
+        int t = a[indx1];
         a[indx1] = a[indx2];
-        a[indx2] = i;
+        a[indx2] = t;
     }
 
     private static void reverse(int[] a) {
-        for (int i = 0; i < a.length; i++) {
+        for (int i = 0; i < a.length / 2; i++) {
             swap(a, i, a.length - i - 1);
         }
     }
