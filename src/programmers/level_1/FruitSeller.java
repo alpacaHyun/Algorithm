@@ -20,7 +20,7 @@ public class FruitSeller {
 
         Arrays.sort(score);
 
-        while(boxEnd - m >= 0) {
+        while (boxEnd - m >= 0) {
             boxList.add(Arrays.copyOfRange(score, (boxEnd - m), boxEnd));
             boxEnd -= m;
         }
