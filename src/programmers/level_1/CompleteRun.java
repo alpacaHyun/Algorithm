@@ -1,7 +1,10 @@
 package programmers.level_1;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
@@ -19,7 +22,9 @@ public class CompleteRun {
         String answer = "";
         List<String> participantList = new ArrayList<>();
         List<String> completionList = new ArrayList<>();
-        List<String> sameName = new ArrayList<>();
+        Set<String> sameName = new HashSet<>();
+        List<String> sameNameList = new ArrayList<>();
+
 
         for (int i = 0; i < participant.length; i++) {
             participantList.add(participant[i]);
@@ -35,18 +40,28 @@ public class CompleteRun {
                     sameName.add(participantList.get(i));
                 }
             }
-                if(sameName.size() == 1){
-                    break;
-                }
+        }
+        if(!sameName.isEmpty()){
+            Iterator<String> it = sameName.iterator();
+            while(it.hasNext()){
+                sameNameList.add(it.next());
+            }
         }
 
         List<String> answerList = participantList.stream()
                 .filter(part -> completionList.stream().noneMatch(Predicate.isEqual(part)))
                 .collect(Collectors.toList());
 
-        if (sameName.size() == 1) {
-            answerList.add(sameName.get(0));
-        }
+//        List<String> sameName = sameNames.stream()
+//                .filter(same -> completionList.stream().noneMatch(Predicate.isEqual(same)))
+//                .collect(Collectors.toList());
+
+
+        List<String> answerList2 = sameNameList.stream()
+                .filter(part -> completionList.stream().noneMatch(Predicate.isEqual(part)))
+                .collect(Collectors.toList());
+
+        answerList.add(answerList2.get(0));
 
         return answerList.get(0);
     }
