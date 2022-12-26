@@ -13,12 +13,14 @@ public class FruitSeller {
     }
 
     public static int solution(int k, int m, int[] score) {
-
         int answer = 0;
+
         List<int[]> boxList = new ArrayList<>();
         int boxEnd = score.length;
 
         Arrays.sort(score);
+
+//        System.out.println(Arrays.toString(score));
 
         while (boxEnd - m >= 0) {
             boxList.add(Arrays.copyOfRange(score, (boxEnd - m), boxEnd));
@@ -26,8 +28,8 @@ public class FruitSeller {
         }
 
         for (int i = 0; i < boxList.size(); i++) {
-            int[] tmp = boxList.get(i);
-            answer += tmp[0] * m;
+            int[] fruitBox = boxList.get(i);
+            answer += fruitBox[0] * m;
         }
 
         return answer;

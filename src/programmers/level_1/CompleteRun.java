@@ -25,7 +25,6 @@ public class CompleteRun {
         Set<String> sameName = new HashSet<>();
         List<String> sameNameList = new ArrayList<>();
 
-
         for (int i = 0; i < participant.length; i++) {
             participantList.add(participant[i]);
         }
@@ -41,9 +40,9 @@ public class CompleteRun {
                 }
             }
         }
-        if(!sameName.isEmpty()){
+        if (!sameName.isEmpty()) {
             Iterator<String> it = sameName.iterator();
-            while(it.hasNext()){
+            while (it.hasNext()) {
                 sameNameList.add(it.next());
             }
         }
@@ -55,7 +54,6 @@ public class CompleteRun {
 //        List<String> sameName = sameNames.stream()
 //                .filter(same -> completionList.stream().noneMatch(Predicate.isEqual(same)))
 //                .collect(Collectors.toList());
-
 
         List<String> answerList2 = sameNameList.stream()
                 .filter(part -> completionList.stream().noneMatch(Predicate.isEqual(part)))
