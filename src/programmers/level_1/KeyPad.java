@@ -1,8 +1,8 @@
 package programmers.level_1;
 
-
 public class KeyPad {
     public static String solution(int[] numbers, String hand) {
+
         StringBuilder LeftRightResult = new StringBuilder();
 
         String[] keyPad = {"123", "456", "789", "*0#"};
@@ -55,7 +55,6 @@ public class KeyPad {
                 }
             }
         }
-
         return LeftRightResult.toString();
     }
 
