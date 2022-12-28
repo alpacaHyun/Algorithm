@@ -2,6 +2,14 @@ package programmers.level_1;
 
 public class AddString {
 
+    public static void main(String[] args) {
+        String s = "안녕하세요 아아아아";
+
+        System.out.println(s.replaceAll(".", "1"));
+
+
+    }
+
     public int Solution(String s) {
 
         int answer = 0;
