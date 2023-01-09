@@ -1,3 +1,5 @@
+package programmers.level1;
+
 public class ThreeIdiots {
 
         public static void main(String[] args) {
