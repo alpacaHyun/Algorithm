@@ -22,43 +22,27 @@ public class Bronze1_2755 {
 
     public static void main(String[] args) throws IOException {
 
-        List<List> totalSubject = new ArrayList<>();
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        int subjectCount = Integer.parseInt(br.readLine());
+        int subjectCounts = Integer.parseInt(br.readLine());
 
+        double total = 0;
+        double gradeTotal = 0;
 
-        for (int i = 0; i < subjectCount; i++) {
-            List<String> oneSubject = new ArrayList<>();
+        for (int i = 0; i < subjectCounts; i++) {
             String input = br.readLine();
-            String[] list = input.split(" ");
-            for (int j = 0; j < list.length; j++) {
-            oneSubject.add(list[j]);
-            }
-            totalSubject.add(oneSubject);
+            String[] tmp = input.split(" ");
+            int num = Integer.parseInt(tmp[1]);
+            double grade = getGrade(tmp[2]);
+
+            gradeTotal += num;
+            total += num * grade;
+
         }
 
-        // 학점 총 합친 값 -> 이수한 학점으로 나눠주어야 함
-        double answer = 0;
-        for (int i = 0; i < subjectCount; i++) {
-            double oneGrade = 0;
-            double grades = Double.parseDouble((String) totalSubject.get(i).get(1));
-            String stringGrade = (String) totalSubject.get(i).get(2);
 
-            answer += grades * getGrade(stringGrade);
-        }
+        System.out.println(String.format("%.2f", total / gradeTotal));
 
-        // 이수한 학점 구하기
-        double howManyGradeAnswer = 0;
-        for (int i = 0; i < subjectCount; i++) {
-            double howManyGrade = Double.parseDouble((String) totalSubject.get(i).get(1));
-            howManyGradeAnswer += howManyGrade;
-        }
-
-        double beforeAnswer = answer / howManyGradeAnswer;
-        double realAnswer = (Math.round(beforeAnswer * 100)) / 100.0;
-
-        System.out.println(realAnswer);
     }
 
     private static double getGrade(String grade) {
