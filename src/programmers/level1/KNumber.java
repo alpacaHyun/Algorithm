@@ -32,7 +32,6 @@ public class KNumber {
             answer[i] = tmp[num - 1];
         }
 
-
         return answer;
     }
 
