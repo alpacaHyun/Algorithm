@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.StringTokenizer;
 
 public class Silver5_2535 {
@@ -22,17 +21,18 @@ public class Silver5_2535 {
             arr[i][2] = Integer.parseInt(st.nextToken());
         }
 
-        Arrays.sort(arr, new Comparator<int[]>() {
-            @Override
-            public int compare(int[] o1, int[] o2) {
-                return o2[2] - o1[2];
-            }
+
+        Arrays.sort(arr, (o1, o2) -> {
+            return o1[2] - o2[2];
         });
 
-        int last = 2;
-        if (arr[0][0] == arr[1][0]) {
-            for (int i = 2; i < n; i++) {
-                if (arr[0][0] != arr[i][0]) {
+
+        int t = arr.length - 1;
+
+        int last = t - 2;
+        if (arr[t][0] == arr[t-1][0]) {
+            for (int i = t-2; i > 0; i--) {
+                if (arr[t][0] != arr[i][0]) {
                     last = i;
                     break;
                 }
