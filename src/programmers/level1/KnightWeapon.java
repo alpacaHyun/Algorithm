@@ -16,16 +16,12 @@ public class KnightWeapon {
 
         for (int i = 1; i <= number; i++) {
             int factors = 0;
-
             for (int j = 1; j * j <= i; j++) {
-
                 if (j * j == i) {
                     factors++;
                 } else if (i % j == 0) {
                     factors += 2;
                 }
-
-
             }
 
             if (factors > limit) {
@@ -33,9 +29,7 @@ public class KnightWeapon {
             } else {
                 answer += factors;
             }
-
         }
-
         return answer;
     }
 }
