@@ -1,41 +1,35 @@
 package programmers.level1;
 
+import java.util.stream.Stream;
+
 public class DivideString {
 
     public static void main(String[] args) {
         String s = "banana";
 
-        solution(s);
+        int solution = solution(s);
+
+        System.out.println("solution = " + solution);
 
     }
 
     public static int solution(String s) {
-        int count = 1;
+        int count = 0;
+        int diff = 0;
         int answer = 0;
-        for (int i = 0; i < s.length() - 1; i++) {
-            String tmp = String.valueOf(s.charAt(i));
-            String tmp2 = String.valueOf(s.charAt(i + 1));
-            if (tmp.equals(tmp2)) {
-                count++;
-                continue;
-            }
-            if (!tmp.equals(tmp2)) {
-                while (count != 1) {
-                    if (tmp.equals(tmp2)) {
-                        count++;
-                    }
-                    if (i > s.length() - 1) {
-                        answer++;
-                        break;
-                    }
-                    i++;
-                    count--;
-                }
+        char first = s.charAt(0);
+        for (int i = 0; i < s.length(); i++) {
+
+            if (count == diff) {
                 answer++;
-                i++;
+                first = s.charAt(i);
+            }
+            if (first == s.charAt(i)) {
+                count++;
+            } else {
+                diff++;
             }
         }
         return answer;
     }
-
 }
