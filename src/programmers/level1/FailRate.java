@@ -1,58 +1,52 @@
 package programmers.level1;
 
-import java.util.Arrays;
+import java.util.Collections;
 
-public class FailRate {
+import java.util.ArrayList;
 
-    public static void main(String[] args) {
 
-        int n = 5;
-        int[] stages = {2, 1, 2, 6, 2, 4, 3, 3};
-        solution(5, stages);
-    }
 
-    public static int[] solution(int N, int[] stages) {
-        // 도전한사람 실패한사람 구하기
-        double challenge = 0;
-        double fail = 0;
+public class FailRate{
 
-        int[][] answer = new int[N][2];
+    public int[] solution(int N, int[] stages) {
 
-        for (int i = 0; i < N; i++) {
-            fail = 0;
-            challenge = 0;
-            for (int j = 0; j < stages.length; j++) {
-                if (stages[j] == i + 1) {
-                    fail++;
-                }
-                if (stages[j] >= i + 1) {
-                    challenge++;
+        int[] answer = new int[N];
+        double[] stage = new double[N+1];
+
+        for(int i : stages){
+            if(i == N+1){
+                continue;
+            }
+            stage[i]++;
+        }
+
+        ArrayList<Double> fail = new ArrayList<Double>();
+        double num =stages.length;
+        double tmp = 0;
+
+        for(int i=1; i<stage.length; i++){
+            tmp = stage[i];
+            if(num == 0){
+                stage[i]=0;
+            }else{
+                stage[i] = stage[i]/num;
+                num = num - tmp;
+            }
+            fail.add(stage[i]);
+        }
+
+        Collections.sort(fail,Collections.reverseOrder());
+
+        for(int i=0; i<fail.size(); i++){
+            for(int j=1; j<stage.length; j++){
+                if(fail.get(i) == stage[j]){
+                    answer[i] = j;
+                    stage[j] = -1;
+                    break;
                 }
             }
-            answer[i][0] = i + 1;
-            answer[i][1] = (int)(100*(fail / challenge));
         }
-
-        Arrays.sort(answer, (o1, o2) -> {
-            return o1[1] - o2[1];
-        });
-
-        int[] tmp = new int[N];
-
-        for (int i = 0; i < N; i++) {
-            tmp[i] = answer[N - i-1][0];
-        }
-
-        for (int i = 0; i < tmp.length / 2; i++) {
-            int z = tmp[i];
-            tmp[i] = tmp[tmp.length - i - 1];
-            tmp[tmp.length - i - 1] = z;
-        }
-
-        System.out.println();
-
-        return tmp;
+        return answer;
     }
 
 }
-

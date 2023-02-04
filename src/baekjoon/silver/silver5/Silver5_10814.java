@@ -25,6 +25,13 @@ public class Silver5_10814 {
 
         }
 
+        Arrays.sort(answerArr,
+                (s1, s2) -> Integer.parseInt(s1[0]) - Integer.parseInt(s2[0]));
+
+        for (String[] strings : answerArr) {
+            System.out.println(strings[0] + " " + strings[1]);
+        }
+
 //        Arrays.sort(answerArr, new Comparator<String[]>() {
 //            // 나이순으로 정렬
 //            @Override
@@ -38,12 +45,7 @@ public class Silver5_10814 {
 
 //        sorted.forEach(i -> System.out.println(i[0] + " " + i[1]));
 
-        Arrays.sort(answerArr,
-                (s1, s2) -> Integer.parseInt(s1[0]) - Integer.parseInt(s2[0]));
 
-        for (String[] strings : answerArr) {
-            System.out.println(strings[0] + " " + strings[1]);
-        }
 
     }
 
