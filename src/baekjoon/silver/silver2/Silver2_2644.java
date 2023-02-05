@@ -34,6 +34,8 @@ public class Silver2_2644 {
 
         if (i == 0) {
             System.out.println(-1);
+        }else {
+            System.out.println(i);
         }
     }
 
@@ -102,8 +104,8 @@ public class Silver2_2644 {
 
         int dfsRecursion(Node node, int to, int count) {
             if (node.data == to) {
-                System.out.println(count);
-                count+= 10;
+//                System.out.println(count);
+                count += count;
                 return count;
             }
             if (node == null) {
